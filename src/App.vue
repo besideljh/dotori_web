@@ -39,9 +39,9 @@
 </template>
 
 <script>
-import './assets/stylesheets/main.css';
+import './assets/stylesheets/main.css'
 
 export default {
-    name: 'App'
+  name: 'App'
 }
 </script>
