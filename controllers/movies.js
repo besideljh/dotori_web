@@ -1,10 +1,10 @@
-const MovieSchema = require('../models/Movie');
+const Movie = require('../models/Movie');
 const Rating = require('../models/Rating');
 
 module.exports.controller = (app) => {
   // fetch all movies
   app.get('/movies', (req, res) => {
-    MovieSchema.find({}, 'name description release_year genre', (error, movies) => {
+    Movie.find({}, 'name description release_year genre', (error, movies) => {
       if (error) {
         console.log(error);
       }
@@ -16,7 +16,7 @@ module.exports.controller = (app) => {
 
   // fetch a single movie
   app.get('/api/movies/:id', (req, res) => {
-    MovieSchema.findById(req.params.id, 'name descripthion release_year genre', (error, movie) => {
+    Movie.findById(req.params.id, 'name descripthion release_year genre', (error, movie) => {
       if (error) {
         console.eror(error);
       }
@@ -45,7 +45,7 @@ module.exports.controller = (app) => {
 
   // add a new movie
   app.post('/movies', (req, res) => {
-    const newMovie = new MovieSchema({
+    const newMovie = new Movie({
       name: req.body.name,
       description: req.body.description,
       release_year: req.body.release_year,

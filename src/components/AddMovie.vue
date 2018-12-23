@@ -48,7 +48,7 @@ export default {
                             release_year: this.release_year,
                             genre: this.genre,
                         },
-                        url: 'http://164.125.50.69:8082/movies',
+                        url: '/movies',
                         headers: {
                             'Content-Type': 'application/json',
                         },
