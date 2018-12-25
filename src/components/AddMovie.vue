@@ -40,31 +40,17 @@ export default {
     methods: {
         submit() {
             if (this.$refs.form.validate()) {
-                return axios({
-                        method: 'post',
-                        data: {
-                            name: this.name,
-                            description: this.description,
-                            release_year: this.release_year,
-                            genre: this.genre,
-                        },
-                        url: '/movies',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                    })
-                    .then(() => {
-                        this.$swal(
-                            'Great!',
-                            'Movie added successfully!',
-                            'Success'
-                        );
-                        this.$router.push({
-                            name: 'Home'
-                        });
-                        this.$refs.form.reset();
-                    })
-                    .catch(() => {});
+                const movie = {
+                    name: this.name,
+                    description: this.description,
+                    release_year: this.release_year,
+                    genre: this.genre,
+                }
+                this.$store.dispatch("addMovie", movie);
+                this.$refs.form.reset();
+                this.$router.push({
+                    name: 'Home'
+                });
             }
             return true;
         },
