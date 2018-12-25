@@ -76,8 +76,9 @@ router.get('/', function (req, res) {
   });
 });
 
-const port = process.env.API_PORT || 8082;
+const port = process.env.API_PORT || 3000;
 app.use('/', router);
+
 var server = app.listen(port, function () {
   console.log(`api running on port ${port}`);
 });
