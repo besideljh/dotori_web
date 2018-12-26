@@ -24,6 +24,7 @@ module.exports.controller = (app) => {
       return true;
     });
   }));
+
   // user login
   app.post('/users/login',
     passport.authenticate('local', {

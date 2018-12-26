@@ -8,7 +8,7 @@
                     <span class="grey--text">{{ movie.release_year }} ‧ {{ movie.genre }}</span>
                 </div>
             </v-card-title>
-            <h6 class="card-title" @click="rate">Rate this movie</h6>
+            <h6 class="card-title" id="rate_movie" @click="rate">Rate this movie</h6>
             <v-card-text>
                 {{ movie.description }}
             </v-card-text>
@@ -39,8 +39,7 @@ const RatingComponent = Vue.extend({
         },
     },
     template: 
-    `<div class="rating">How was your experience getting help with this issues?
-    <star-rating v-model="rating" :show-rating="false"></star-rating></div>`,
+    `<div class="rating">How was your experience getting help with this issues? <star-rating v-model="rating" :show-rating="false"></star-rating></div>`,
     components: {
         'star-rating': StarRating
     },
@@ -74,7 +73,7 @@ export default {
                         data: {
                             rate: state.note,
                         },
-                        url: `http://164.125.50.69:8082/movies/rate/${movieId}`,
+                        url: `/movies/rate/${movieId}`,
                         headers: {
                             'Content-Type': 'application/json',
                         },
@@ -91,7 +90,7 @@ export default {
         async fetchMovie() {
             return axios({
                     method: 'get',
-                    url: `http://164.125.50.69:8082/api/movies/${this.$route.params.id}`,
+                    url: `/api/movies/${this.$route.params.id}`,
                 })
                 .then((response) => {
                     this.movie = response.data;

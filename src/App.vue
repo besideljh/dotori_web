@@ -7,7 +7,7 @@
                     <v-list-tile-action>
                         <v-icon>home</v-icon>
                     </v-list-tile-action>
-                    <v-list-tile-content>Home</v-list-tile-content>
+                    <v-list-tile-content id="home">Home</v-list-tile-content>
                 </v-list-tile>
             </router-link>
             <router-link v-bind:to="{ name: 'Contact' }" class="side_bar_link">
@@ -15,28 +15,21 @@
                     <v-list-tile-action>
                         <v-icon>contact_mail</v-icon>
                     </v-list-tile-action>
-                    <v-list-tile-content>Contact</v-list-tile-content>
+                    <v-list-tile-content id="contact">Contact</v-list-tile-content>
                 </v-list-tile>
             </router-link>
         </v-list>
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
-        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+        <v-toolbar-side-icon id="drawer" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
         <v-toolbar-title>Home</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items class="hidden-sm-and-down">
-            <v-btn id="add_movie_link" flat v-bind:to="{ name: 'AddMovie' }" v-if="current_user">
-                Add Movie
-            </v-btn>
+            <v-btn id="add_movie_link" flat v-bind:to="{ name: 'AddMovie' }" v-if="current_user">Add Movie</v-btn>
             <v-btn id="user_email" flat v-if="current_user">{{ current_user.email }}</v-btn>
-            <v-btn flat v-bind:to="{ name: 'Register' }" v-if="!current_user" id="register_btn">
-                Register
-            </v-btn>
-            <v-btn flat v-bind:to="{ name: 'Login' }" v-if="!current_user" id="login_btn">Login</v-btn>
+            <v-btn id="register_btn" flat v-bind:to="{ name: 'Register' }" v-if="!current_user">Register</v-btn>
+            <v-btn id="login_btn" flat v-bind:to="{ name: 'Login' }" v-if="!current_user">Login</v-btn>
             <v-btn id="logout_btn" flat v-if="current_user" @click="logout">Logout</v-btn>
-        </v-toolbar-items>
-        <v-toolbar-items class="hidden-sm-and-down">
-            <v-btn flat v-bind:to="{ name: 'AddMovie' }">Add Movie</v-btn>
         </v-toolbar-items>
     </v-toolbar>
     <v-content>
