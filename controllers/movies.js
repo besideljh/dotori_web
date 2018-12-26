@@ -5,11 +5,9 @@ module.exports.controller = (app) => {
   // fetch all movies
   app.get('/movies', (req, res) => {
     Movie.find({}, 'name description release_year genre', (error, movies) => {
-      if (error) {
-        console.log(error);
-      }
+      if (error) { console.log(error); }
       res.send({
-        movies,
+        movies: movies
       });
     });
   });
