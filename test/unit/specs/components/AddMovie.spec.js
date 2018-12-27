@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import AddMovie from '@/components/AddMovie';
+
 describe('AddMovie', () => {
   let cmp, vm;
   beforeEach(() => {
