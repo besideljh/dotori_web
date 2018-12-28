@@ -1,6 +1,8 @@
 # dotori
 
-> A Vue.js project
+> A Vue.js project.
+
+  It is very easy to store URLs and set reminders.
 
 ## Build Setup
 
@@ -8,7 +10,7 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:3000
 npm run dev
 
 # build for production with minification
